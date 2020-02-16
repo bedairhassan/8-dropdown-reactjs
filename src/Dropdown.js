@@ -1,27 +1,13 @@
 import React from 'react';
 import './App.css';
 
-export default class Dropdown extends React.Component {
+export const DropDown =({data,greet}) => {
 
-    constructor(props) {
+    const listItems = data.map((number) => <option>{number}</option>);
 
-        super(props)
-
-
-    }
-
-    render() {
-
-        return (
-
-            <React.Fragment>
-                <h2>dropdown {this.props.id}</h2>
-
-                <button onClick={() => {
-                    this.props.greet(20)
-                }}>Click me</button>
-
-            </React.Fragment>
-        )
-    }
-}
+    return (
+      <select onChange={(event)=>{greet(event.target.value)}}>{listItems}</select>
+      // <select>{listItems}</select>
+    );
+  }
+  

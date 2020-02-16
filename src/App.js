@@ -1,33 +1,31 @@
 import React from 'react';
-import DropDown from './Dropdown'
+import { DropDown } from './DropDown'
 
 import './App.css';
 
-class App extends React.Component{
+class App extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
 
-    this.state={
+    this.state = {
 
-      age:0
+      age: 0
     }
   }
 
-  greet(name){
+  greet(name) {console.log(name, 'came from child component')} // 
+  greet2(name) {console.log(name, 'came from child2 component')}
 
-    console.log(name,'came from child component')
-    // set state
-    this.setState({age:20})
-  }
+  render() {
 
-  render(){
-
-    return(
+    return (
 
       <React.Fragment>
         <h1>HankerHank, my age is {this.state.age}</h1>
-        <DropDown id={64} greet={this.greet.bind(this)}/>
+        <DropDown greet={this.greet.bind(this)} data={['hassan', 'ali']}  />
+        <DropDown greet={this.greet2.bind(this)} data={['hassan', 'ali']}  />
+        {/* handleChange={this.handleChange.bind(this)} */}
       </React.Fragment>
     )
   }
