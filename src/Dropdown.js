@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
 
-export const DropDown =({data,greet}) => {
+export const DropDown =({data,greet,codeDisplay}) => {
 
-    const listItems = data.map((number) => <option>{number}</option>);
+    const listItems = data.map((number) => <option key={number.item}>{number.item}</option>);
 
     return (
-      <select onChange={(event)=>{greet(event.target.value)}}>{listItems}</select>
+      <div>
+        <select onChange={(event)=>{greet(event.target.value)}}>{listItems}</select>
+        {codeDisplay}
+      </div>
       // <select>{listItems}</select>
     );
   }
